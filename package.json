@@ -30,7 +30,18 @@
       {
         "command": "vs-code-extension.helloWorld",
         "title": "Hello World"
-      }
+      },
+      {
+				"command": "calicoColors.addColor2",
+				"category": "Calico Colors",
+				"title": "Add Color"
+			},
+			{
+				"command": "calicoColors.clearColors2",
+				"category": "Calico Colors",
+				"title": "Clear Colors",
+				"icon": "$(clear-all)"
+			}
     ],
     "views": {
       "package-explorer": [
@@ -42,12 +53,22 @@
       ],
       "no-package-explorer":[
         {
-          "id": "temp_id",
-          "name": "temp_name",
-          "icon": "media/icon2.svg"
-        }
+					"type": "webview",
+					"id": "calicoColors.colorsView2",
+          "icon": "media/icon2.svg",
+					"name": "Calico Colors"
+				}
       ]
-    }
+    },
+    "menus": {
+			"view/title": [
+				{
+					"command": "calicoColors.clearColors2",
+					"group": "navigation",
+					"when": "view == calicoColors.colorsView2"
+				}
+			]
+		}
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
