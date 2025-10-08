@@ -12,6 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('calicoColors.addColor2', () => {
+			vscode.window.showInformationMessage('Hello World from vs-code-extension!');
 			provider.addColor();
 		}));
 
