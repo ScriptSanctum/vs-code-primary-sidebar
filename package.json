@@ -12,12 +12,42 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "package-explorer",
+          "title" : "example",
+          "icon": "media/icon.svg"
+        },
+        {
+          "id": "no-package-explorer",
+          "title": "no pakcage exp",
+          "icon": "media/icon2.svg"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "vs-code-extension.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "views": {
+      "package-explorer": [
+        {
+          "id": "views_id",
+          "name": "views example",
+          "icon": "media/icon.svg"
+        }
+      ],
+      "no-package-explorer":[
+        {
+          "id": "temp_id",
+          "name": "temp_name",
+          "icon": "media/icon2.svg"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
