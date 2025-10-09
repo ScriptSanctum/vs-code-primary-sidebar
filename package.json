@@ -15,39 +15,44 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "package-explorer",
-          "title" : "example",
-          "icon": "media/icon.svg"
-        },
-        {
-          "id": "no-package-explorer",
-          "title": "no pakcage exp",
+          "id": "ButtonUI-id",
+          "title": "ButtonUI Extension",
           "icon": "media/icon2.svg"
         }
       ]
     },
+    "views": {
+      "ButtonUI-id":[
+        {
+					"type": "webview",
+          "name": "ButtonUI",
+					"id": "ButtonUI.start",
+          "icon": "media/icon2.svg"
+				}
+      ]
+    },
     "commands": [
       {
-        "command": "vs-code-extension.helloWorld",
-        "title": "Hello World"
-      }
+				"command": "ButtonUI.addColors",
+				"category": "ButtonUI",
+				"title": "Add Color"
+			},
+			{
+				"command": "ButtonUI.clearColors",
+				"category": "ButtonUI",
+				"title": "Clear Colors",
+				"icon": "$(clear-all)"
+			}
     ],
-    "views": {
-      "package-explorer": [
+    "menus": {
+			"view/title": [
         {
-          "id": "views_id",
-          "name": "views example",
-          "icon": "media/icon.svg"
-        }
-      ],
-      "no-package-explorer":[
-        {
-          "id": "temp_id",
-          "name": "temp_name",
-          "icon": "media/icon2.svg"
+          "command": "ButtonUI.clearColors",
+          "group": "navigation",
+          "when": "view == ButtonUI.start"
         }
       ]
-    }
+		}
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
@@ -73,5 +78,6 @@
     "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
