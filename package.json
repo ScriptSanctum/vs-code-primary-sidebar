@@ -15,59 +15,43 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "package-explorer",
-          "title" : "example",
-          "icon": "media/icon.svg"
-        },
-        {
-          "id": "no-package-explorer",
-          "title": "no pakcage exp",
+          "id": "ButtonUI-id",
+          "title": "ButtonUI Extension",
           "icon": "media/icon2.svg"
         }
       ]
     },
     "commands": [
       {
-        "command": "vs-code-extension.helloWorld",
-        "title": "Hello World"
-      },
-      {
-				"command": "calicoColors.addColor2",
-				"category": "Calico Colors",
+				"command": "ButtonUI.addColors",
+				"category": "ButtonUI",
 				"title": "Add Color"
 			},
 			{
-				"command": "calicoColors.clearColors2",
-				"category": "Calico Colors",
+				"command": "ButtonUI.clearColors",
+				"category": "ButtonUI",
 				"title": "Clear Colors",
 				"icon": "$(clear-all)"
 			}
     ],
     "views": {
-      "package-explorer": [
-        {
-          "id": "views_id",
-          "name": "views example",
-          "icon": "media/icon.svg"
-        }
-      ],
-      "no-package-explorer":[
+      "ButtonUI-id":[
         {
 					"type": "webview",
-					"id": "calicoColors.colorsView2",
-          "icon": "media/icon2.svg",
-					"name": "Calico Colors"
+          "name": "ButtonUI",
+					"id": "ButtonUI.start",
+          "icon": "media/icon2.svg"
 				}
       ]
     },
     "menus": {
 			"view/title": [
-				{
-					"command": "calicoColors.clearColors2",
-					"group": "navigation",
-					"when": "view == calicoColors.colorsView2"
-				}
-			]
+        {
+          "command": "ButtonUI.clearColors",
+          "group": "navigation",
+          "when": "ButtonUI.start == view"
+        }
+      ]
 		}
   },
   "scripts": {
