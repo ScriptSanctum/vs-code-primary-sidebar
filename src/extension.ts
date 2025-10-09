@@ -24,6 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 
 class ColorsViewProvider implements vscode.WebviewViewProvider {
+	// ButtonUI.start should match the id of views in package.json
 	public static readonly viewType = 'ButtonUI.start';
 
 	private _view?: vscode.WebviewView;
