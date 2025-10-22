@@ -1,4 +1,3 @@
-import 'vscode-webview'
 //@ts-check
 
 // This script will be run within the webview itself
