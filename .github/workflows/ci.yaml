@@ -1,0 +1,27 @@
+name: ci
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+jobs:
+  build:
+    name: build-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout 
+        uses: actions/checkout@v5
+      - name: Set Node.js 22.11.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 22.11.0
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install # will run `yarn install` command
+      - name: lint checks
+        run: yarn lint
+      - name: build
+        run: yarn build
