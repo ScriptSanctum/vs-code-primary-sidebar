@@ -58,6 +58,11 @@ class ColorsViewProvider implements vscode.WebviewViewProvider {
 						vscode.window.activeTextEditor?.insertSnippet(new vscode.SnippetString(`#${data.value}`));
 						break;
 					}
+				case 'alert':
+					{
+						vscode.window.showErrorMessage(data.test);
+						break;
+					}
 			}
 		});
 	}
@@ -108,6 +113,8 @@ class ColorsViewProvider implements vscode.WebviewViewProvider {
 				<title>Cat Colors</title>
 			</head>
 			<body>
+				<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
+    			<h1 id="lines-of-code-counter">0</h1>	
 				<ul class="color-list">
 				</ul>
 

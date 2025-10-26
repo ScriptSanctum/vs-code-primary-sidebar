@@ -1,5 +1,3 @@
-//@ts-check
-
 // This script will be run within the webview itself
 // It cannot access the main VS Code APIs directly.
 (function () {
@@ -9,6 +7,19 @@
 
     /** @type {Array<{ value: string }>} */
     let colors = oldState.colors;
+    const counter = document.getElementById('lines-of-code-counter');
+
+    let count = 0;
+    setInterval(() => {
+        counter.textContent = count++;
+
+        if(count > 50) {
+            vscode.postMessage({
+                type: 'alert',
+                test: 'on line'+count
+            })
+        }
+    }, 100);
 
     updateColorList(colors);
 
