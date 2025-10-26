@@ -55,6 +55,7 @@
 		}
   },
   "scripts": {
+    "build":"webpack build --config ./webpack.config.js --stats verbose",
     "vscode:prepublish": "yarn run package",
     "compile": "webpack",
     "watch": "webpack --watch",
